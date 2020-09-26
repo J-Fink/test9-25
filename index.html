@@ -75,7 +75,7 @@ li {
     text-align: center;
     height: 50vh;
     width: 100%;
-    background: url(IMG_4362.jpg);
+    background: url(IMG_4362.JPG);
     background-position-x: -1186px;
     background-position-y: -2480px;
 }
@@ -102,17 +102,20 @@ li {
 
 @media only screen and (max-width: 500px) {
     .dropdown-menu {
-        display: flex;
-        visibility: hidden;
-        position: absolute;
         background-color: var(--nav-hover-color);
         width: 0;
+        height: 100vh;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         padding: 12px 16px;
         z-index: 1;
-        transition: all 2.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        position: absolute;
     }
     .dropdown-content:hover {
+        text-align: center;
         color: white;
         background-color: var(--nav-hover-color);
         background-color: var(--nav-color);
