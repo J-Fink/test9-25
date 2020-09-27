@@ -126,22 +126,28 @@ li {
     }
     .bar-container {
         display: block;
-        width: 16px;
-        height: 16px;
+        width: 30px;
+        height: 18px;
         margin-top: 34px;
         background: none;
         cursor: pointer;
     }
     .bar-1, .bar-2, .bar-3 {
         display: block;
-        width: 16px;
-        height: 2px;
+        width: 30px; /*16px;*/
+        height: 4px; /*2px;*/
+        border-radius: 10px;
         background: black;
         margin: 2px 0;
         transition: all 0.50s;
     }
+    .bar-2 {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
     .change .bar-1 {
-        transform: rotate(-45deg) translate(-2.75px, 2.7px);
+        transform: rotate(-45deg) translate(-6.75px, 6.7px)
+        /* transform: rotate(-45deg) translate(-2.75px, 2.7px); */
         
     }
     .change .bar-2 {
