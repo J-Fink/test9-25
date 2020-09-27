@@ -128,7 +128,8 @@ li {
         display: block;
         width: 30px;
         height: 18px;
-        margin-top: 34px;
+        margin-top: 17px;
+        margin-bottom: 17px;
         background: none;
         cursor: pointer;
     }
@@ -182,9 +183,9 @@ li {
                     <div class="bar-3"></div>
                 </div>
                 <div id="menu" class="dropdown-menu">
-                    <li class="dropdown-content"><a href="#learn-more">About</a></li>
-                    <li class="dropdown-content"><a href="#education">Education</a></li>
-                    <li class="dropdown-content"><a href="#technology">Technologies</a></li>
+                    <li class="dropdown-content"><a class="learn-more-link" href="#learn-more">About</a></li>
+                    <li class="dropdown-content"><a class="education-link" href="#education">Education</a></li>
+                    <li class="dropdown-content"><a class="technology-link" href="#technology">Technologies</a></li>
                 </div>
             </ul>
         </nav>
@@ -241,6 +242,9 @@ Leberkas salami meatball, ball tip rump turkey ham hock burgdoggen bacon kevin t
         let bar1 = document.querySelector('.bar-1');
         let bar2 = document.querySelector('.bar-2');
         let bar3 = document.querySelector('.bar-3');
+        let learnMoreLink = document.querySelector('.learn-more-link')
+        let educationLink = document.querySelector('.education-link')
+        let technologyLink = document.querySelector('.technology-link')
         let button = document.getElementById('do-it');
         let dropdownContent = document.querySelector('.dropdown-menu');
         bar.addEventListener('click', showMenu);
