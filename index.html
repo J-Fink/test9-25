@@ -61,6 +61,8 @@ li {
     line-height: var(--line-height);
 }
 .dropdown-content a {
+    display: block;
+    height: var(--line-height);
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -248,7 +250,21 @@ Leberkas salami meatball, ball tip rump turkey ham hock burgdoggen bacon kevin t
         let button = document.getElementById('do-it');
         let dropdownContent = document.querySelector('.dropdown-menu');
         bar.addEventListener('click', showMenu);
+        learnMoreLink.addEventListener('click', showAbout);
+        educationLink.addEventListener('click', showEducation);
+        technologyLink.addEventListener('click', showTechnology);
         
+        
+        function showTechnology(){
+            hideMenu();
+        }
+        function showEducation(){
+            hideMenu();
+        }
+        function showAbout(){
+            hideMenu();
+        }
+
         function showMenu(){
             bar.classList.add('change');
             dropdownContent.classList.add('expand')
