@@ -70,7 +70,7 @@ li {
 .dropdown-content:hover {
     color: white;
     background-color: var(--nav-hover-color);
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
 }
 #summary {
@@ -103,7 +103,7 @@ li {
     }
 
 @media only screen and (max-width: 500px) {
-    .dropdown-menu {
+    .hidden {
         background-color: var(--nav-hover-color);
         width: 0;
         height: 100vh;
@@ -116,8 +116,20 @@ li {
         visibility: hidden;
         position: absolute;
     }
+    .hidden .dropdown-content {
+        width: 0;
+        visibility: hidden;
+    }
+    .animated.dropdown-content {
+        width: 100vw;
+        visibility: visible;
+    }
+    .shake {
+        transform: rotate(-5deg);
+    }
     .dropdown-content {
         width: 100vw;
+        transition: all 0.5s ease-in-out;
     }
     .dropdown-content:hover {
         text-align: center;
@@ -142,7 +154,7 @@ li {
         border-radius: 10px;
         background: black;
         margin: 2px 0;
-        transition: all 0.50s;
+        transition: all 0.5s;
     }
     .bar-2 {
         margin-top: 3px;
@@ -248,13 +260,60 @@ Leberkas salami meatball, ball tip rump turkey ham hock burgdoggen bacon kevin t
         let educationLink = document.querySelector('.education-link')
         let technologyLink = document.querySelector('.technology-link')
         let button = document.getElementById('do-it');
-        let dropdownContent = document.querySelector('.dropdown-menu');
+        let dropdownMenu = document.querySelector('.dropdown-menu');
+        let dropdownContent = document.querySelectorAll('.dropdown-content');
+        let barClick = 0;
         bar.addEventListener('click', showMenu);
         learnMoreLink.addEventListener('click', showAbout);
         educationLink.addEventListener('click', showEducation);
         technologyLink.addEventListener('click', showTechnology);
-        
-        
+        function addHiddenClass() {
+            dropdownMenu.classList.add('hidden');
+            // for (let i = 0; i < dropdownContent.length; i++) {
+            // dropdownContent[i].classList.add('hidden');  
+            // }
+        }
+        function removeHiddenClass() {
+            dropdownMenu.classList.remove('hidden');
+            // for (let i = 0; i < dropdownContent.length; i++) {
+            // dropdownContent[i].classList.remove('hidden');  
+            // }
+        }
+        bar.addEventListener('mousedown', shakeBar);
+        bar.addEventListener('mouseout', steadyBar);
+        bar.addEventListener('mouseover', steadyBar);
+
+        bar.addEventListener('mouseup', steadyBar);
+        function steadyBar() {
+            if (barClick === 1) {
+            bar1.classList.remove('shake');
+            bar2.classList.remove('shake');
+            bar3.classList.remove('shake');
+            barClick = 0;
+            } 
+            // bar.removeEventListener('mousedown', shakeBar);
+
+        }
+        function shakeBar() {
+            bar1.classList.add('shake');
+            bar2.classList.add('shake');
+            bar3.classList.add('shake');
+            barClick = 1;
+
+            // bar.removeEventListener('mousedown', shakeBar);
+        }
+        function myFunction(x) {
+            if (x.matches) {
+                addHiddenClass();
+                console.log('hidden class added');
+            } else {
+                removeHiddenClass();
+                console.log('hidden class removed');
+            }
+        }
+        let x = window.matchMedia('(max-width: 500px)');
+        myFunction(x);
+        x.addListener(myFunction);
         function showTechnology(){
             hideMenu();
         }
@@ -267,13 +326,19 @@ Leberkas salami meatball, ball tip rump turkey ham hock burgdoggen bacon kevin t
 
         function showMenu(){
             bar.classList.add('change');
-            dropdownContent.classList.add('expand')
+            dropdownMenu.classList.add('expand');
+            for (let i = 0; i < dropdownContent.length; i++) {
+            dropdownContent[i].classList.add('animated');
+            }
             bar.removeEventListener('click', showMenu);
             bar.addEventListener('click', hideMenu);
         }
         function hideMenu() {
             bar.classList.remove('change');
-            dropdownContent.classList.remove('expand');
+            dropdownMenu.classList.remove('expand');
+            for (let i = 0; i < dropdownContent.length; i++) {
+            dropdownContent[i].classList.remove('animated');
+            }
             bar.removeEventListener('click', hideMenu);
             bar.addEventListener('click', showMenu);
         }
