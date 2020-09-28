@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Portfolio</title>
+</head>
+<body>
+<style>
+:root {
+    --line-height: 6.5vh;
+    --header-height: 7.5vh;
+      --nav-color:/* #0B5351; */ rgba(11, 83, 81, 0.85);
+    --nav-hover-color: /*#00A9A5;*/rgb(0, 169, 165, 0.85);
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: var(--header-height);
+    position: fixed;
+    background-color: var(--nav-color);
+    text-align: center;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: var(--line-height);
+}
+div {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+}
+.dropdown-menu {
+    display: inline-block;
+    width: 100vw;
+    padding: 12px 16px;
+    z-index: 1;
+    }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    width: auto;
+}
+.dropdown-content {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    height: var(--line-height);
+    line-height: var(--line-height);
+}
+.dropdown-content a {
+    display: block;
+    height: var(--line-height);
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.dropdown-content:hover {
+    color: white;
+    background-color: var(--nav-hover-color);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+#summary {
+    text-align: center;
+    height: 50vh;
+    width: 100%;
+    background: url(IMG_4362.JPG);
+    background-position-x: -1186px;
+    background-position-y: -2480px;
+}
+#summary h1 {
+    margin: 0;
+    padding-top: 75px;
+}
+#dropdown {
+    position: relative;
+    padding-left: 1.25em;
+}
+#dropdown::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.25em;
+    width: 1em;
+    height: 0.15em;
+    background: black;
+    box-shadow:
+        0 0.25em 0 0 black,
+        0 0.5em 0 0 black;
+    }
+
+@media only screen and (max-width: 500px) {
+    .hidden {
+        background-color: var(--nav-hover-color);
+        width: 0;
+        height: 100vh;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 0;
+        z-index: 1;
+        transition: all 0.5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        position: absolute;
+    }
+    .hidden .dropdown-content {
+        width: 0;
+        visibility: hidden;
+    }
+    .animated.dropdown-content {
+        width: 100vw;
+        visibility: visible;
+    }
+    .shake {
+        transform: rotate(-5deg);
+    }
+    .dropdown-content {
+        width: 100vw;
+        transition: all 0.5s ease-in-out;
+    }
+    .dropdown-content:hover {
+        text-align: center;
+        color: white;
+        background-color: var(--nav-hover-color);
+        background-color: var(--nav-color);
+        width: 100vw;
+    }
+    .bar-container {
+        display: block;
+        width: 30px;
+        height: 18px;
+        margin-top: 17px;
+        margin-bottom: 17px;
+        background: none;
+        cursor: pointer;
+    }
+    .bar-1, .bar-2, .bar-3 {
+        display: block;
+        width: 30px; /*16px;*/
+        height: 4px; /*2px;*/
+        border-radius: 10px;
+        background: black;
+        margin: 2px 0;
+        transition: all 0.5s;
+    }
+    .bar-2 {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    .change .bar-1 {
+        transform: rotate(-45deg) translate(-6.75px, 6.7px)
+        /* transform: rotate(-45deg) translate(-2.75px, 2.7px); */
+        
+    }
+    .change .bar-2 {
+        background-color:aqua;
+        transform: translateY(-500px);
+    }
+    .change .bar-3 {
+        transform: rotate(45deg) translate(-2.75px, -3px);
+    }
+    #summary {
+        height: 100vh;
+        width: 100%;
+        background: url(IMG_4362.JPG);
+        background-position-x: -1766px;
+        background-position-y: -2480px;
+    }
+    .expand {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        visibility: visible;   }
+}
+</style>
+    <header>
+        <!-- <h1>THINK FINK FOR WEB DEVELOPMENT</h1> -->
+        <nav>
+            <ul class="menu-container">
+                <div class="bar-container">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+                <div id="menu" class="dropdown-menu">
+                    <li class="dropdown-content"><a class="learn-more-link" href="#learn-more">About</a></li>
+                    <li class="dropdown-content"><a class="education-link" href="#education">Education</a></li>
+                    <li class="dropdown-content"><a class="technology-link" href="#technology">Technologies</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <section id="summary">
+        <h1>THINK FINK FOR WEB DEVELOPMENT</h1>
+    </section>
+    <section id="learn-more">
+        <h1>Bio</h1>
+        <div>
+            <ul>
+                <li>Husband: Yes</li>
+                <li>Father: Three times over</li>
+                <li>Attempt To Fix Anything: You betcha!</li>
+                <li>Self-taught developer: is there any other way?</li>
+            </ul>
+        </div>
+    </section>
+    <section id="bacon-ipsum">
+        Bacon ipsum dolor amet boudin shankle bresaola, andouille doner short ribs alcatra ball tip ribeye beef ribs. Swine salami corned beef, jerky biltong pancetta brisket meatball. Flank tri-tip biltong turkey cow venison ham pork chop shoulder. Kevin landjaeger t-bone tenderloin leberkas chuck bacon rump corned beef. Chuck pig swine, pork belly burgdoggen pork chop beef ribs filet mignon chicken cow alcatra tongue.<br><br>
+
+Boudin spare ribs cow shoulder, bresaola chicken shankle pork loin pig tenderloin filet mignon. Brisket hamburger turducken porchetta sausage. T-bone tri-tip alcatra short loin chicken jerky, filet mignon pork kevin strip steak pork chop shankle short ribs shoulder sirloin. Chislic short ribs beef ribs turkey, venison andouille bresaola meatball. Filet mignon tri-tip meatball short ribs leberkas. Ham meatball jerky pork loin, venison capicola pork chop.<br><br>
+
+T-bone bacon turkey, pig landjaeger bresaola shoulder brisket chicken shank meatball meatloaf buffalo corned beef picanha. Pork chop meatball hamburger corned beef picanha venison spare ribs biltong. Shoulder tail frankfurter meatball filet mignon, drumstick tongue ball tip alcatra pork ham hock hamburger. Drumstick brisket porchetta, jowl biltong picanha kevin short loin pork belly. Tenderloin ribeye pastrami pig swine.
+<br><br>
+Beef ribs filet mignon doner, corned beef turkey pork belly ribeye beef frankfurter sirloin rump. Picanha shank jowl cupim frankfurter brisket rump filet mignon burgdoggen bresaola strip steak bacon jerky. T-bone short loin bacon tri-tip biltong leberkas buffalo jowl rump andouille short ribs ham hock jerky ball tip. Swine t-bone pancetta chislic ground round pork chop. Ball tip doner venison, cupim shankle pork salami frankfurter swine. Prosciutto bresaola pancetta leberkas cow doner pork loin. Beef ribs salami venison shoulder ball tip swine biltong picanha filet mignon ribeye.
+<br><br>
+Leberkas salami meatball, ball tip rump turkey ham hock burgdoggen bacon kevin tri-tip flank pig t-bone. Kielbasa turkey burgdoggen tongue shoulder landjaeger tri-tip ham pig. Porchetta capicola swine shankle sirloin venison burgdoggen tri-tip. Ham hock tongue chuck pastrami.<br>
+    </section>
+    <section id="education">
+        <h1>Education</h1>
+        <div>
+            <ul>
+                <li>Bachelors of Arts in Philosophy i.e. Critical thinking is my jam</li>
+                <li>Self-Taught Developer</li>
+            </ul>
+        </div>
+    </section>
+    <section id="technology">
+        <h1>Technologies</h1>
+        <div>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li><em>Frameworks</em></li>
+                <li>Expressjs</li>
+                <li><em>Backend</em></li>
+                <li>Node.js</li>
+            </ul>
+        </div>
+<script>
+ let bar = document.querySelector('.bar-container');
+        let bar1 = document.querySelector('.bar-1');
+        let bar2 = document.querySelector('.bar-2');
+        let bar3 = document.querySelector('.bar-3');
+        let learnMoreLink = document.querySelector('.learn-more-link')
+        let educationLink = document.querySelector('.education-link')
+        let technologyLink = document.querySelector('.technology-link')
+        let button = document.getElementById('do-it');
+        let dropdownMenu = document.querySelector('.dropdown-menu');
+        let dropdownContent = document.querySelectorAll('.dropdown-content');
+        let barClick = 0;
+        bar.addEventListener('click', showMenu);
+        learnMoreLink.addEventListener('click', showAbout);
+        educationLink.addEventListener('click', showEducation);
+        technologyLink.addEventListener('click', showTechnology);
+        function addHiddenClass() {
+            dropdownMenu.classList.add('hidden');
+            // for (let i = 0; i < dropdownContent.length; i++) {
+            // dropdownContent[i].classList.add('hidden');  
+            // }
+        }
+        function removeHiddenClass() {
+            dropdownMenu.classList.remove('hidden');
+            // for (let i = 0; i < dropdownContent.length; i++) {
+            // dropdownContent[i].classList.remove('hidden');  
+            // }
+        }
+        bar.addEventListener('mousedown', shakeBar);
+        bar.addEventListener('mouseout', steadyBar);
+        bar.addEventListener('mouseover', steadyBar);
+
+        bar.addEventListener('mouseup', steadyBar);
+        function steadyBar() {
+            if (barClick === 1) {
+            bar1.classList.remove('shake');
+            bar2.classList.remove('shake');
+            bar3.classList.remove('shake');
+            barClick = 0;
+            } 
+            // bar.removeEventListener('mousedown', shakeBar);
+
+        }
+        function shakeBar() {
+            bar1.classList.add('shake');
+            bar2.classList.add('shake');
+            bar3.classList.add('shake');
+            barClick = 1;
+
+            // bar.removeEventListener('mousedown', shakeBar);
+        }
+        function myFunction(x) {
+            if (x.matches) {
+                addHiddenClass();
+                console.log('hidden class added');
+            } else {
+                removeHiddenClass();
+                console.log('hidden class removed');
+            }
+        }
+        let x = window.matchMedia('(max-width: 500px)');
+        myFunction(x);
+        x.addListener(myFunction);
+        function showTechnology(){
+            hideMenu();
+        }
+        function showEducation(){
+            hideMenu();
+        }
+        function showAbout(){
+            hideMenu();
+        }
+
+        function showMenu(){
+            bar.classList.add('change');
+            dropdownMenu.classList.add('expand');
+            for (let i = 0; i < dropdownContent.length; i++) {
+            dropdownContent[i].classList.add('animated');
+            }
+            bar.removeEventListener('click', showMenu);
+            bar.addEventListener('click', hideMenu);
+        }
+        function hideMenu() {
+            bar.classList.remove('change');
+            dropdownMenu.classList.remove('expand');
+            for (let i = 0; i < dropdownContent.length; i++) {
+            dropdownContent[i].classList.remove('animated');
+            }
+            bar.removeEventListener('click', hideMenu);
+            bar.addEventListener('click', showMenu);
+        }
+</script>
+</body>
+</html>
